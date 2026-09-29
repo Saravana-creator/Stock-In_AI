@@ -1,0 +1,194 @@
+{
+  "feature_cols": [
+    "lag_1",
+    "lag_7",
+    "lag_14",
+    "rolling_mean_7",
+    "rolling_sum_7",
+    "rolling_mean_14",
+    "rolling_std_7",
+    "current_stock",
+    "reorder_lvl",
+    "lead_days",
+    "days_of_inventory",
+    "inventory_to_reorder_ratio",
+    "reorder_gap",
+    "is_below_reorder",
+    "mrp",
+    "cost_price",
+    "profit_margin",
+    "current_discount_pct",
+    "current_promo_active",
+    "temp_c",
+    "rain_mm",
+    "holiday",
+    "festival_flag",
+    "local_event_flag",
+    "day_of_week",
+    "is_weekend",
+    "month",
+    "day_of_month",
+    "quarter",
+    "floor_area_sqft",
+    "avg_daily_customers",
+    "store_id_code",
+    "product_id_code",
+    "category_code",
+    "sub_category_code",
+    "store_type_code",
+    "region_code"
+  ],
+  "cat_cols": [
+    "store_id",
+    "product_id",
+    "category",
+    "sub_category",
+    "store_type",
+    "region"
+  ],
+  "demand_comparison": [
+    {
+      "Model": "Baseline (Previous 7-Day Demand)",
+      "MAE": 3.5841870721734734,
+      "RMSE": 7.268634674398055,
+      "R2": 0.8467975073237626,
+      "MAPE (%)": 58.95800498587115
+    },
+    {
+      "Model": "Ridge Regression",
+      "MAE": 2.9849237138772544,
+      "RMSE": 5.698972677054818,
+      "R2": 0.9058211684209575,
+      "MAPE (%)": 48.615400986935796
+    },
+    {
+      "Model": "XGBoost Regressor (Selected)",
+      "MAE": 2.8060538087704394,
+      "RMSE": 5.251951015895924,
+      "R2": 0.9200163015310627,
+      "MAPE (%)": 44.401705260228205
+    }
+  ],
+  "stockout_comparison": [
+    {
+      "Model": "Naive Reorder Point Rule",
+      "Accuracy": 0.6541553728120549,
+      "Precision": 0.5310734463276836,
+      "Recall": 0.33588565594691167,
+      "F1-Score": 0.41150719199499686,
+      "ROC-AUC": 0.5
+    },
+    {
+      "Model": "Random Forest Classifier",
+      "Accuracy": 0.7102494601920338,
+      "Precision": 0.573347404777895,
+      "Recall": 0.7626339969372129,
+      "F1-Score": 0.6545813023714333,
+      "ROC-AUC": 0.8021627338619872
+    },
+    {
+      "Model": "XGBoost Classifier (Selected)",
+      "Accuracy": 0.7196673864106216,
+      "Precision": 0.5827290076335878,
+      "Recall": 0.7793517100561511,
+      "F1-Score": 0.6668486569119895,
+      "ROC-AUC": 0.8173343231896694
+    }
+  ],
+  "confusion_matrix": [
+    [
+      9558,
+      4373
+    ],
+    [
+      1729,
+      6107
+    ]
+  ],
+  "explainability": {
+    "demand_top_features": [
+      {
+        "feature": "rolling_sum_7",
+        "importance": 0.4197654724121094
+      },
+      {
+        "feature": "rolling_mean_14",
+        "importance": 0.3682357370853424
+      },
+      {
+        "feature": "rolling_mean_7",
+        "importance": 0.08046232163906097
+      },
+      {
+        "feature": "reorder_lvl",
+        "importance": 0.019143514335155487
+      },
+      {
+        "feature": "region_code",
+        "importance": 0.018631460145115852
+      },
+      {
+        "feature": "store_id_code",
+        "importance": 0.012462756596505642
+      },
+      {
+        "feature": "current_promo_active",
+        "importance": 0.0073824296705424786
+      },
+      {
+        "feature": "floor_area_sqft",
+        "importance": 0.006160928402096033
+      },
+      {
+        "feature": "lead_days",
+        "importance": 0.004803819116204977
+      },
+      {
+        "feature": "current_stock",
+        "importance": 0.004402452614158392
+      }
+    ],
+    "stockout_top_features": [
+      {
+        "feature": "days_of_inventory",
+        "importance": 0.21432042121887207
+      },
+      {
+        "feature": "category_code",
+        "importance": 0.11610685288906097
+      },
+      {
+        "feature": "rolling_sum_7",
+        "importance": 0.10512081533670425
+      },
+      {
+        "feature": "inventory_to_reorder_ratio",
+        "importance": 0.10461992025375366
+      },
+      {
+        "feature": "lead_days",
+        "importance": 0.047754183411598206
+      },
+      {
+        "feature": "lag_1",
+        "importance": 0.03872295096516609
+      },
+      {
+        "feature": "floor_area_sqft",
+        "importance": 0.035018205642700195
+      },
+      {
+        "feature": "avg_daily_customers",
+        "importance": 0.032266583293676376
+      },
+      {
+        "feature": "rolling_mean_14",
+        "importance": 0.028201647102832794
+      },
+      {
+        "feature": "is_below_reorder",
+        "importance": 0.02782202884554863
+      }
+    ]
+  }
+}
